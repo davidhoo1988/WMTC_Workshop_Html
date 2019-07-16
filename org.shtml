@@ -1,0 +1,221 @@
+<!DOCTYPE html>
+<html>
+<head>
+<style>
+
+body {
+  font-family: 'Pavanam', sans-serif;
+  background-color: white;
+  padding: 0px;
+  margin: 0px;
+  width: auto;
+  overflow:scroll;
+}
+body h3{
+  text-decoration:bold;
+  padding-top:20px;
+}
+body a:link{
+  color: #393185;
+}
+
+h2 {
+    font-size: 1.3em;
+    font-weight: bold;
+    line-height: 24px;
+    color: #B95835;
+    
+    padding-top: 1em;
+    padding-left: 0em;
+    padding-right: 0.2em;
+
+    border-bottom: 1px solid #999999;
+    
+    background-color: transparent;
+}
+
+body li { 
+    list-style-position: outside;
+}
+
+body ul.widelist li {
+    padding-top: 6px;
+    padding-bottom: 6px;
+} 
+
+/******************
+ * Program        *
+ ******************/
+#program li {
+    padding-top: 5px;
+    padding-bottom: 5px;
+}
+#program span.chair {
+    float: right;
+    font-style: italic;
+}
+#program span.place {
+    float: right;
+    font-style: italic;
+}
+#program span.title {
+    font-weight: bold;
+}
+#program span.authors {
+    font-style: italic;
+}
+#program span.affiliation {
+}
+
+.pc-member {
+    text-align: right;
+    padding-right:5px;
+}
+
+.affiliation {
+    font-style: italic;
+}
+
+div.paper {
+    display: block;
+    padding-top:10px;
+}
+
+div.title {
+    display: block;
+    font-weight: bold;
+}
+
+div.authors {
+    display: block;
+}
+
+div.affiliation {
+    font-style: italic;    
+    display: block;
+}
+
+div.invited {
+    display: block;
+    padding-top: 10px;
+}
+
+
+#content {
+  position:relative;
+	background-color: white; 
+  box-shadow: 1px 1px 1px #444444;
+	min-height: 300px;
+	padding: 20px;
+	padding-top: 10px;
+	padding-bottom: 90px;
+	margin: 8px;
+	margin-top: 18px;
+}
+
+#top {
+    text-align:left;
+    color: #ece6e6;
+  	text-shadow: 2px 2px 2px #444444;
+    background-image: url("./fig/WAVE.jpg");
+    background-position: top left;
+	background-size: cover;
+	background-repeat: no-repeat;
+	height:250px;
+	padding-top: 1px;
+	padding-left: 22px;
+  	font-family: "Pavanam", sans-serif;
+}
+
+
+#top h1{
+  margin-top: 10px;
+}
+
+.chesmain {
+  background-color: #393185;
+}
+
+#menu {
+  width:98vw;
+  max-width:100%;
+	padding-top: 20px;
+	padding-left: 0px;
+	padding-bottom: 0px;
+}
+
+.logo {
+  display: inline-block;
+  height: 140px;
+  width: 145px;
+  float:right;
+  margin-top:-87px;
+  border-width:0px;
+}
+
+
+.chesyear {
+  background-color: #b22234;
+}
+
+.entry {
+  display: inline-block;
+  padding:8px;
+  padding-left:4px;
+  padding-right:4px;
+  margin-left: 10px;
+  margin-bottom: 8px;
+  width: 155px;
+  text-align: center;
+  color: #e0e0e0;
+  box-shadow: 3px 3px 3px #444444;
+}
+  
+.entry:hover {
+  box-shadow: 1px 1px 1px #444444;
+}
+
+
+
+</style>
+</head>
+
+
+
+<div id="top"> 
+<!-- 在此处写注释 <img src="NTU.jpg" height="100%" width="100%"/> -->
+<h1 style="text-align:left;">The Workshop on Modern Trends in Cryptography</h1>
+<h3 style="text-align:left;"> Singapore, June 13-14, 2019</h3>
+</div>
+
+<div id="menu">
+<div class="logo">
+<div style="position:relative;left:-30px;top:10px;width:40px;height:10px">
+  	<a href="http://iacr.org"><img src="./fig/NTU_logo.jpg" alt="NTU logo" height="120"></a>
+ </div>
+</div>
+<a href="./index.html"><div class="entry chesmain">Workshop Home</div></a>
+<a href="./reg.shtml"><div class="entry chesyear">Registration</div></a>
+<a href="./speak.shtml"><div class="entry chesyear">Speakers</div></a>
+<a href="./program.shtml"><div class="entry chesyear">Program</div></a>
+<a href="./hotel.shtml"><div class="entry chesyear">Time and Venue</div></a>
+<a href="./org.shtml"><div class="entry chesyear">Local Organizers</div></a>
+</div>
+
+
+<div id="content">
+<div id="program">  
+<h2> Local Organizers from NTU, Singapore </h2>
+<ul>
+<li><b>Huaxiong Wang</b>, <a href=mailto:>hxwang<!-- >@. -->[ATs]<!-- >@. -->ntu<!-- >@. -->[DOTs]<!-- >@. -->edu[DOTs]sg</a></li>
+<li><b>Khoa Nguyen</b>, <a href=mailto:>khoantt<!-- >@. -->[ATs]<!-- >@. -->ntu<!-- >@. -->[DOTs]<!-- >@. -->edu[DOTs]sg</a></li>
+<li><b>Fuchun Lin</b>, <a href=mailto:>fclin<!-- >@. -->[ATs]<!-- >@. -->ntu<!-- >@. -->[DOTs]<!-- >@. -->edu[DOTs]sg</a></li>
+<li><b>David Jingwei Hu</b>, <a href=mailto:>davidhu<!-- >@. -->[ATs]<!-- >@. -->ntu<!-- >@. -->[DOTs]<!-- >@. -->edu[DOTs]sg</a></li>
+</ul>
+</div>
+</div>
+
+
+
+</body>
+</html>

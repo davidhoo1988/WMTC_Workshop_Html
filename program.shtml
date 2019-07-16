@@ -1,0 +1,421 @@
+<!DOCTYPE html>
+<html>
+<head>
+<style>
+
+body {
+  font-family: 'Pavanam', sans-serif;
+  background-color: white;
+  padding: 0px;
+  margin: 0px;
+  width: auto;
+  overflow:scroll;
+}
+body h3{
+  text-decoration:bold;
+  padding-top:20px;
+}
+
+h2 {
+    font-size: 1.3em;
+    font-weight: bold;
+    line-height: 24px;
+    color: #B95835;
+    
+    padding-top: 1em;
+    padding-left: 0em;
+    padding-right: 0.2em;
+
+    border-bottom: 1px solid #999999;
+    
+    background-color: transparent;
+}
+
+h5, h6 {
+    font-size: 1.0em;
+    font-weight: bold;
+
+}
+
+/*******************
+ * Anchor elements *
+ *******************/
+a[href] {
+    color: #996600;
+    text-decoration: none;
+} 
+a[href]:visited {
+    color: #996600;
+    text-decoration: none;
+}
+a[href]:hover {
+    color: #000;   
+}
+
+body li { 
+    list-style-position: outside;
+}
+
+body ul.widelist li {
+    padding-top: 6px;
+    padding-bottom: 6px;
+} 
+
+/******************
+ * Program        *
+ ******************/
+#program li {
+    padding-top: 5px;
+    padding-bottom: 5px;
+}
+#program span.chair {
+    float: right;
+    font-style: italic;
+}
+#program span.place {
+    float: right;
+    font-style: italic;
+}
+#program span.title {
+    font-weight: bold;
+}
+#program span.authors {
+    font-style: italic;
+}
+#program span.affiliation {
+}
+
+.pc-member {
+    text-align: right;
+    padding-right:5px;
+}
+
+.affiliation {
+    font-style: italic;
+}
+
+div.paper {
+    display: block;
+    padding-top:10px;
+}
+
+div.title {
+    display: block;
+    font-weight: bold;
+}
+
+div.authors {
+    display: block;
+}
+
+div.affiliation {
+    font-style: italic;    
+    display: block;
+}
+
+div.invited {
+    display: block;
+    padding-top: 10px;
+}
+
+
+#content {
+  position:relative;
+	background-color: white; 
+  box-shadow: 1px 1px 1px #444444;
+	min-height: 300px;
+	padding: 20px;
+	padding-top: 10px;
+	padding-bottom: 90px;
+	margin: 8px;
+	margin-top: 18px;
+}
+
+#top {
+    text-align:left;
+    color: #ece6e6;
+  	text-shadow: 2px 2px 2px #444444;
+    background-image: url("./fig/WAVE.jpg");
+    background-position: top left;
+	background-size: cover;
+	background-repeat: no-repeat;
+	height:250px;
+	padding-top: 1px;
+	padding-left: 22px;
+  	font-family: "Pavanam", sans-serif;
+}
+
+
+#top h1{
+  margin-top: 10px;
+}
+
+.chesmain {
+  background-color: #393185;
+}
+
+#menu {
+  width:98vw;
+  max-width:100%;
+	padding-top: 20px;
+	padding-left: 0px;
+	padding-bottom: 0px;
+}
+
+.logo {
+  display: inline-block;
+  height: 140px;
+  width: 145px;
+  float:right;
+  margin-top:-87px;
+  border-width:0px;
+}
+
+
+.chesyear {
+  background-color: #b22234;
+}
+
+.entry {
+  display: inline-block;
+  padding:8px;
+  padding-left:4px;
+  padding-right:4px;
+  margin-left: 10px;
+  margin-bottom: 8px;
+  width: 155px;
+  text-align: center;
+  color: #e0e0e0;
+  box-shadow: 3px 3px 3px #444444;
+}
+  
+.entry:hover {
+  box-shadow: 1px 1px 1px #444444;
+}
+</style>
+
+<link href="styles.css" rel="stylesheet" type="text/css">
+<script src="http://ajax.googleapis.com/ajax/libs/jquery/1.7.2/jquery.min.js" type="text/javascript"></script>
+<script src="jquery-ui-1.8.21.custom.min.js" type="text/javascript"></script>
+<script src="jquery.tools.min.js" type="text/javascript"></script>
+<style type="text/css">
+    .talk-abstract { display: none; padding-left: 10px; border-left: #996600 dotted 1px; text-align: justify; clear: left;}
+    .talk-title { font-weight: bold; text-shadow: 0px 1px 1px #ccc;}
+    .talk-authors {text-shadow: 0px 1px 1px #ddd;}
+    .contributed { padding: 0; margin: 0; list-style-type: none; }
+    ul.contributed li {margin: 20px 0;}
+    .abstract-show {cursor: pointer; color: #996600;}
+    .abstract-show:hover {color: #000;}
+    .abstract-show .text {text-decoration: underline;}
+    .abstract-show-dummy {display: block; float: left; width: 79px;}
+    .math { font-style: italic;}
+    .speaker {text-decoration: underline;}
+    .program {width: 100%; border-collapse: collapse; border-spacing: 0;}
+    .talk{border-bottom: dotted 1px #ddd;}
+    .program td {padding: 5px 10px;}
+    .event {background-color: #EFF5FB; border-bottom: solid 1px #fff;}
+    .time {width: 15%; vertical-align: top; padding-left: 100px;}
+    .extabstract2 {display: block; float: left; width: 149px;}
+    .slides {display: block; float: left; width: 79px;}
+    .video {display: block; float: left; width: 57px;}
+    .slides, .video, .extabstract2 {text-decoration: none;}
+    .slides .text, .video .text, .extabstract2 .text {text-decoration: underline;}
+    .tooltip {
+        display: none;
+        background: rgba(80,80,80,20); 
+        height: 64px; width: 180px; 
+        padding: 20px; border: white solid 2px; 
+        -moz-box-shadow:    3px 3px 5px 6px #ccc;
+        -webkit-box-shadow: 3px 3px 5px 6px #ccc;
+        box-shadow:         3px 3px 5px 6px #ccc;
+    }
+</style>
+
+<script type="text/javascript">
+    $(document).ready(
+            function () {
+
+                // Getting around a jQuery bug that does not always compute the size of a 
+                // hidden element correctly, and make buggy animations
+                // Let's do it manually.
+                $(".talk-abstract").show().each(function () {
+                    $(this).css("height", $(this).height());
+                }).hide();
+
+                // The jQuery magic
+                $(".abstract-show").click(function () {
+                    abstr = $(this).siblings(".talk-abstract");
+                    if (abstr.css('display') == 'none') {
+                        abstr.show("drop", {direction: "left"}, "fast");
+                        $(this).children(".imgabstract").attr('src', 'images/abstract-up.png');
+
+                    } else {
+                        abstr.hide("drop", {direction: "right"}, "fast");
+                        $(this).children(".imgabstract").attr('src', 'images/abstract-down.png');
+                    }
+                });
+
+                // When someone click on the abstract link on the menu, we need to trigger a click on the correct element.
+                // This is stored in a data-show HTML5 attribute.
+                $(".trigger-abstract-show").click(function () {
+                    $($(this).attr("data-show")).trigger("click");
+                });
+
+                // Tooltip when several formats are available for the slides
+                $(".download_choice").tooltip();
+            }
+    )
+</script>
+
+</head>
+
+
+
+<div id="top"> 
+<!-- 在此处写注释 <img src="NTU.jpg" height="100%" width="100%"/> -->
+<h1 style="text-align:left;">The Workshop on Modern Trends in Cryptography</h1>
+<h3 style="text-align:left;"> Singapore, June 13-14, 2019</h3>
+</div>
+
+<div id="menu">
+<div class="logo">
+<div style="position:relative;left:-30px;top:10px;width:40px;height:10px">
+  	<a href="http://iacr.org"><img src="./fig/NTU_logo.jpg" alt="NTU logo" height="120"></a>
+ </div>
+</div>
+<a href="./index.html"><div class="entry chesmain">Workshop Home</div></a>
+<a href="./reg.shtml"><div class="entry chesyear">Registration</div></a>
+<a href="./speak.shtml"><div class="entry chesyear">Speakers</div></a>
+<a href="./program.shtml"><div class="entry chesyear">Program</div></a>
+<a href="./hotel.shtml"><div class="entry chesyear">Time and Venue</div></a>
+<a href="./org.shtml"><div class="entry chesyear">Local Organizers</div></a>
+</div>
+
+
+<div id="content">
+<div id="program">  
+  <h2> Day 1: Thursday, June 13th, 2019</h2>
+  <ul>
+  <li>9:00 - 9:20 <span class="title">Registration</span></li>
+  <li>9:20 - 9:30 <span class="title">Welcome Remark</span></li>
+  </ul>
+  <h6>Morning Session</h6>
+  <ul>
+<li>09:30-10:30 <span class="title"><a href="">Approximate Homomorphic Encryption and Privacy Preserving Machine Learning</a></span> [<span class="abstract-show">Abstract</span>] [<a href="slides/JungHeeCheon-2019.6.13_HEAAN_ML.pdf">Slides</a>]
+<br><span class="authors">Jung Hee Cheon</span>
+<div class="talk-abstract" style="display: block; width: 80%; height: 100%;">
+  <p>We first introduce our approximate homomorphic encryption HEAAN. HEAAN supports fixed-point operations via addition, multiplication and rescaling of plaintext vectors. This feature significantly accelerates approximate arithmetic of real numbers (compared with bit-wise arithmetics) and realizes machine learning on encrypted data. We introduce several implementation results about logistic regression, Deep Neural Network, and Recurrent Neural Network on encrypted data. Another important operation includes logical operations such as min/max and comparison. We suggest a novel approach to efficient homomorphic comparison algorithm. As an application, we introduce our implementation results on encrypted sorting.  
+</p> </div>
+<br><span class="affiliation">Seoul National University, South Korea</span></li>
+<li>10:30-11:00 <span class="title">Coffee Break</span></li>
+<li>11:00-12:00 <span class="title"><a href="">Security of SHA-3</a></span> [<a href="slides/JianGuo-keccakSummary.pdf">Slides</a>]
+<br><span class="authors">Jian Guo</span>
+<br><span class="affiliation">Nanyang Technological University, Singapore</span></li>
+<li>12:00-12:30 <span class="title"><a href="">Leakage-Resilient Non-Malleable Secret Sharing in Non-compartmentalized Models</a></span> [<span class="abstract-show">Abstract</span>] [<a href="slides/Fuchun-Lin-NM-SS.pdf">Slides</a>]
+  <div class="talk-abstract" style="display: block; width: 80%; height: 100%;">
+  <p>Abstract: Non-malleable secret sharing was recently proposed by Goyal and Kumar in independent tampering and joint tampering models for threshold secret sharing (STOC18) and secret sharing with general access structure (CRYPTO18). The idea of making secret sharing non-malleable received great attention and by now has generated many papers exploring new frontiers in this topic, such as multiple-time tampering and adding leakage resiliency to the one-shot tampering model. Non-compartmentalized tampering model was first studied by Agrawal et.al (CRYPTO15) for non-malleability against permutation composed with bit-wise independent tampering, and shown useful in constructing non-malleable string commitments. </p>
+
+<p>We initiate the study of leakage-resilient secret sharing in the non-compartmentalized model.
+Leakage in leakage-resilient secret sharing is usually modelled as arbitrary functions with bounded total output length applied to each share or up to a certain number of shares (but never the full share vector) at one time. We allow the leakage functions to be applied to the full share vector (non-compartmentalized) but restrict to the class of affine leakage functions. The leakage adversary can corrupt several players and obtain their shares, as in normal secret sharing. The leakage adversary can apply arbitrary affine functions with bounded total output length to the full share vector and obtain the outputs as leakage. These two processes can be both non-adaptive and do not depend on each other, or both adaptive and depend on each other with arbitrary ordering. We use a generic approach that combines randomness extractors with error correcting codes to construct such leakage-resilient secret sharing schemes, and achieve constant information ratio (the scheme for non-adaptive adversary is near optimal).</p>
+
+<p>We then explore making the non-compartmentalized leakage-resilient secret sharing also non-malleable against tampering. We consider a tampering model, where the adversary can use the shares obtained from the corrupted players and the outputs of the global leakage functions to choose a tampering function from a tampering family F. We give two constructions of such leakage-resilient non-malleable secret sharing for the case F is the bit-wise independent tampering and, respectively, for the case F is the affine tampering functions, the latter is non-compartmentalized tampering that subsumes the permutation composed with bit-wise independent tampering mentioned above. 
+  </p> 
+  </div>
+<br><span class="authors">Fuchun Lin</span>
+<br><span class="affiliation">Nanyang Technological University, Singapore</span></li>
+<li>12:30-14:00 <span class="title">Lunch</span></li>
+</ul>
+
+
+
+  <h6>Afternoon Session</h6>
+  <ul>
+<li>14:00-15:00 <span class="title"><a href="">Adaptively Secure Distributed PRFs from LWE</a></span> [<span class="abstract-show">Abstract</span>] [<a href="slides/BenoitLibert-slides-NTU-June.pdf">Slides</a>]
+<div class="talk-abstract" style="display: block; width: 80%; height: 100%;">
+n lattice  assumptions. One caveat is that they are only known to be secure in the static corruption setting, where the adversary chooses the servers to corrupt at the very beginning of the game, before any evaluation query. In this work, we construct the first fully non-interactive adaptively secure DPRF in the standard model. Our construction is proved secure under the LWE assumption against adversaries that may adaptively decide which servers they want to corrupt. We also extend our construction in order to achieve robustness against malicious adversaries.
+</p> </div>
+<br><span class="authors">Benoît Libert</span>
+<br><span class="affiliation">CNRS and ENS Lyon, France</span></li>
+<li>15:00-16:00 <span class="title"><a href="">Lattice-Based Zero-Knowledge Proofs: New Techniques for Shorter and Faster Constructions and Applications</a></span> [<span class="abstract-show">Abstract</span>] [<a href="slides/Ron-Steinfeld-ZKProofsandApps_NTU_4.pdf">Slides</a>]
+<div class="talk-abstract" style="display: block; width: 80%; height: 100%;">
+  <p>We devise new techniques for design and analysis of efficient lattice-based zero-knowledge proofs (ZKP). First, we introduce one-shot proof techniques for non-linear polynomial relations of degree k ≥ 2, where the protocol achieves a negligible soundness error in a single execution, and thus performs significantly better in both computation and communication compared to prior protocols requiring multiple repetitions. Such proofs with degree k ≥ 2 have been crucial ingredients for important privacy-preserving protocols in the discrete logarithm setting. Moreover, we introduce two speedup techniques for lattice-based ZKPs: a CRT-packing technique supporting “inter-slot” operations, and “NTTfriendly” tools that permit the use of fully-splitting rings. The former technique comes at almost no cost to the proof length, and the latter one barely increases it, which can be compensated for by tweaking the rejection sampling parameters while still having faster computation overall. To illustrate the utility of our techniques, we show how to use them to build efficient relaxed proofs for important relations, namely proof of commitment to bits, one-out-of-many proof, range proof and set membership proof. Despite their relaxed nature, we further show how our proof systems can be used as building blocks for advanced cryptographic tools such as ring signatures. Our ring signature achieves a dramatic improvement in length over all the existing proposals from lattices at the same security level. The computational evaluation also shows that our construction is highly likely to outperform all the relevant works in running times.
+</p> </div>
+<br><span class="authors">Ron Steinfeld</span>
+<br><span class="affiliation">Monash University, Australia</span></li>
+<li>16:00-16:30 <span class="title">Coffee Break</span></li>
+<li>16:30-17:30 <span class="title"><a href="">Encrypted Computation from Lattices</a></span> [<span class="abstract-show">Abstract</span>] [<a href="slides/ntu19.pdf">Slides</a>] 
+<div class="talk-abstract" style="display: block; width: 80%; height: 100%;">
+<p>In this talk, we will survey three cryptographic notions of enabling computation over encrypted data – attribute-based encryption, fully homomorphic encryption, and laconic functional evaluation – as well as their instantiations from lattices.
+</p> </div>
+<br><span class="authors">Hoeteck Wee</span> 
+<br><span class="affiliation">CNRS and ENS, France and Algorand</span></li> 
+<li>18:30-20:30 <span class="title">Banquet</span>
+<br><span class="authors">PUTIEN, Jurong Point</span>
+<br><span class="affiliation">1 Jurong West Central 2, #02-34, Singapore, 648886</span></li>
+</ul>
+
+
+
+
+ <h2> Day 2: Friday, June 14th, 2019</h2>
+ <ul>
+  <li>9:15 - 9:30 <span class="title">Registration</span></li>
+  </ul>
+
+  <h6>Morning Session</h6>
+  <ul>
+<li>09:30-10:30 <span class="title"><a href="">Parallel Signcryption</a></span> [<span class="abstract-show">Abstract</span>] [<a href="slides/Josef-Pieprzyk-signcryption.pdf">Slides</a>]
+ <div class="talk-abstract" style="display: block; width: 80%; height: 100%;">
+  <p>Signcryption aims to provide both confidentiality and authentication of messages more efficiently than the independent application of encryption and signature. In the talk, we consider a generic and efficient signcryption scheme featuring parallel encryption and signature on top of a sponge-based message-padding underlying structure. Unlike other existing schemes, the proposed scheme also supports arbitrary long messages. We prove the construction secure when instantiated from weakly secure asymmetric primitives such as a trapdoor one-way encryption and a universal unforgeable signature. 
+</p> </div>
+<br><span class="authors">Josef Pieprzyk</span>
+<br><span class="affiliation">CSIRO Data61, Australia</span></li>
+<li>10:30-11:00 <span class="title">Coffee Break</span></li>
+<li>11:00-12:00 <span class="title"><a href="">Backward Secure Dynamic Searchable Symmetric Encryption with Efficient Updates</a></span> [<span class="abstract-show">Abstract</span>] [<a href="slides/HyungTaeLee-DSSE.pdf">Slides</a>]
+<div class="talk-abstract" style="display: block; width: 80%; height: 100%;">
+  <p>Together with forward security, backward security is one of key security requirements for dynamic searchable symmetric encryption. Recently, Kim et al. proposed a new database structure, called dual dictionary, which can be seen as a combination of forward and inverted indexes. On top of this, they presented a new dynamic searchable symmetric encryption scheme. (ACM CCS 2017) It supports forward security, but unfortunately does not support backward security. In this talk, we provide a new dynamic searchable symmetric encryption scheme under dual dictionary structures. Our proposed construction achieves backward security as well as keeps the advantages of Kim et al.’s constructions.
+</p> 
+  </div>
+<br><span class="authors">Hyung Tae Lee</span>
+<br><span class="affiliation">Chonbuk National University, South Korea</span></li>
+<li>12:00-12:30 <span class="title"><a href="">Stern's Protocol Can Be Practical</a></span>
+<br><span class="authors">Khoa Nguyen</span>
+<br><span class="affiliation">Nanyang Technological University, Singapore</span></li>
+<li>12:30-14:00 <span class="title">Lunch</span></li>
+</ul>
+
+
+
+  <h6>Afternoon Session</h6>
+  <ul>
+<li>14:00-15:00 <span class="title"><a href="">Exploring Links Between Lattice-based NIZKs and Various Signature Schemes</a></span> [<span class="abstract-show">Abstract</span>] [<a href="slides/Shu-Katsumata-NTU_Workshop.pdf">Slides</a>]
+<div class="talk-abstract" style="display: block; width: 80%; height: 100%;">
+  <p>In the last few years, we have seen great progress in lattice-based non-interactive zero-knowledge proof systems (NIZKs) in the standard model. Kim and Wu [CRYPTO'18] constructed a variant of NIZKs called designated-prover NIZKs (DP-NIZKs), Lombardi et al. [CRYPTO'19] constructed a variant of NIZKs called designated-verifier NIZKs (DV-NIZKs), and finally, Peikert and Shiehian [CRYPTO'19] constructed full-fledged NIZKs. Interestingly, all works follow a different design methodology, and accordingly, some require weaker assumptions than others. Notably, DP-NIZKs can be based solely on the short integer solution (SIS) assumption, however, it seems we additionally need to assume the learning with errors (LWE) assumption for DV-NIZKs and standard NIZKs.  Since we do not know how to construct public-key encryption schemes based on SIS, while we do know how to base it on LWE, there seems to clearly be a gap.
+</p> 
+<p>In this talk, we will look into this disparity through the lens of various signature schemes. For example, we know standard signature schemes can be based solely on SIS. This is demonstrated by the fact the DP-NIZK is sufficient to construct signature schemes. On the other hand, thus far, ring signature schemes seem to require LWE (whose construction can only be attained by using standard NIZKs). We also look at how to generalize the notion of DP-NIZKs and see that it is actually implied by attribute-based signature schemes which can be built from SIS. Moreover, using this new notion of generalized DP-NIZKs we build the first group-signature schemes based on SIS which satisfy a slightly weaker notion of anonymity than the standard one. This weakening of the anonymity notion may perhaps be inherent since otherwise, such strong group signature schemes imply public-key encryption schemes. </p>
+</div>  
+<br><span class="authors">Shuichi Katsumata</span>
+<br><span class="affiliation">AIST and PQShield, Japan</span></li>
+<li>15:00-16:00 <span class="title"><a href="">Physical Assumptions for Secure Communication: Theory and Practice</a></span> <!--[<a href="./slides/Slides01_2.pdf">Slides</a>]-->
+<br><span class="authors">Rei Safavi-Naini</span>
+<br><span class="affiliation">University of Calgary, Canada</span></li>
+<li>16:00-16:30 <span class="title">Coffee Break</span></li>
+<li>16:30-17:30 <span class="title"><a href="">Continuous Non-Malleable Codes in 8-Split State</a></span> [<span class="abstract-show">Abstract</span>] [<a href="slides/MaciejObremski-NMC-NTU'19-offical.pptx">Slides</a>]
+<div class="talk-abstract" style="display: block; width: 80%; height: 100%;">
+  <p>Non-malleable codes (NMCs), introduced by Dziembowski, Pietrzak and Wichs [DPW10], provide a useful message integrity guarantee in situations where traditional error-correction (and even error-detection) is impossible; for example, when the attacker can completely overwrite the encoded message. NMCs have emerged as a fundamental object at the intersection of coding theory and cryptography. In particular, progress in the study of non-malleable codes and the related notion of non-malleable extractors has led to new insights and progress on even more fundamental problems like the construction of multi-source randomness extractors.</p> 
+<p>A large body of the recent work has focused on various constructions of non-malleable codes in the split-state model. Many variants of NMCs have been introduced in the literature i.e. strong NMCs, super strong NMCs and continuous NMCs. The most general, and hence also the most useful notion among these is that of continuous non-malleable codes, that allows for continuous tampering by the adversary.</p>
+ <p>We present the first efficient information-theoretically secure continuously non-malleable code in the constant split-state model, where there is a self-destruct mechanism which ensures that the adversary loses access to tampering after the first failed decoding.</p>
+</div>  
+<br><span class="authors">Maciej Obremski</span>
+<br><span class="affiliation">National University of Singapore, Singapore</span></li>
+</ul>
+
+
+
+
+<center>--- End of program ---</center>
+
+</div>
+</div>
+</body>
+</html>
